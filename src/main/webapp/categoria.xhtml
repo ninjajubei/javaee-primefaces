@@ -1,0 +1,48 @@
+<!DOCTYPE html>  
+<html xmlns="http://www.w3c.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:ui="http://java.sun.com/jsf/facelets"    
+      xmlns:c="http://java.sun.com/jsp/jstl/core">  
+
+    <h:head> 
+        <title> Categorías </title>
+        <style>
+            .titulo{
+                color: #ff8a00; 
+                font-weight: bold;
+            }
+            
+            .full{
+                width: 100%;
+            }
+        </style>
+    </h:head> 
+    <h:body> 
+        <h3>Categorías de Productos</h3>   
+
+        <h:form id="form"> 
+            <c:forEach items="#{categoriaBean.categorias}" var="cat">     
+                <p:commandButton value="#{cat.descripcion}" 
+                                 actionListener="${categoriaBean.cargarProductos(cat.id)}" 
+                                 update=":form:dgCategorias" /> 
+            </c:forEach>
+
+            <p:dataGrid id="dgCategorias"  value="#{categoriaBean.productos}" var="producto"> 
+                <p:column> 
+                    <p:panel> 
+                        <h:panelGrid columns="1" class="full"> 
+                            <p:graphicImage  value="http://bit.ly/1KJxmwF" width="200px" /> 
+                           
+                            <h:outputText value="#{producto.nombre}" class="titulo" />   
+                            
+                            <h:outputText  value="#{producto.descripcion}" /> 
+                        </h:panelGrid>
+                    </p:panel> 
+                </p:column> 
+            </p:dataGrid>
+
+        </h:form>  
+    </h:body> 
+</html> 

@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <title>Buscar Personas</title>
+    </h:head>
+    <h:body>
+        <h1>Buscar Personas</h1>
+
+
+        <h:form id="form">
+
+            <p:autoComplete value="#{personaBean.personaSeleccionada}"
+                            completeMethod="#{personaBean.buscar}" var="p"
+                            itemLabel="#{p.apellidos} #{p.nombres}"
+                            itemValue="#{p.codigo}" 
+                            maxResults="5" minQueryLength="2" size="50" />
+
+            <p:commandButton value="Grabar"></p:commandButton>
+
+            <p:ajaxStatus>
+                <f:facet name="start">
+                    <p:graphicImage value="/images/ajax-loading.gif" />
+                </f:facet>
+                
+                <f:facet name="complete">
+                    <h:outputText value="Seleccionado" />
+                </f:facet>
+            </p:ajaxStatus>
+        </h:form>
+
+
+
+
+    </h:body>
+</html>
+
