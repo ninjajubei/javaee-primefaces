@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDRTHR4x3gyBxDZ9rdwUiPB6WzU0UbPn7A" type="text/javascript"></script>
+    </h:head>
+    <h:body>
+        <h4>Ubicación de Tecsup</h4>
+        <p:gmap center="-12.0432569, -76.9542907" zoom="17" type="terrain" 
+                style="width:600px;height:400px" model="#{mapaBean.modelo}" />
+    </h:body>
+</html>

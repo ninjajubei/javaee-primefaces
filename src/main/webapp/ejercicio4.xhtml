@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:head>        
+    </h:head>
+    <h:body>
+        <h:form id="form">
+            <c:forEach items="#{rolBean.roles}" var="roles">
+                <p:commandButton value="#{roles.descripcion}"
+                                 actionListener="${rolBean.cargarUsuarios(roles.id)}"
+                    update=":form:dgRoles" />
+            </c:forEach>
+            
+            <p:dataTable var="usuario" value="#{rolBean.usuarios}" id="dgRoles">
+                <p:column headerText="Nombres">
+                    <h:outputText value="#{usuario.nombres}" />
+                </p:column>
+                <p:column headerText="Paterno">
+                    <h:outputText value="#{usuario.apePaterno}" />
+                </p:column>
+                <p:column headerText="Materno">
+                    <h:outputText value="#{usuario.apeMaterno}" />
+                </p:column>
+                <p:column headerText="Correo">
+                    <h:outputText value="#{usuario.correo}" />
+                </p:column>
+            </p:dataTable>
+            
+        </h:form>
+    </h:body>
+</html>

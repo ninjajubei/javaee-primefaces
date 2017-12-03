@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:head>
+    </h:head>
+    <h:body>
+        <h:form id="form">
+            <p:autoComplete value="#{personaBean.personaSeleccionada}" 
+                            completeMethod="#{personaBean.buscar}" var="p" 
+                            itemLabel="#{p.apellidos} #{p.nombres}" 
+                            itemValue="#{p.codigo}"
+                            maxResults="5" minQueryLength="2" size="50"
+                            id="busqueda"/>
+            <p:commandButton value="Grabar" 
+                             actionListener="#{personasBean.grabar}"></p:commandButton>
+            <p:ajaxStatus>
+                <f:facet name="start">
+                    <p:graphicImage value="/images/ajax-loading.gif" />
+                </f:facet>
+                <f:facet name="complete">
+                    <h:outputText value="Seleccionado" />
+                </f:facet>
+            </p:ajaxStatus>
+        </h:form>
+    </h:body>
+</html>
