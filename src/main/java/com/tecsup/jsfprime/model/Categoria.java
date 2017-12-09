@@ -3,6 +3,8 @@ package com.tecsup.jsfprime.model;
 public class Categoria {
 
     private Long id;
+    
+    private String nombre;
 
     private String descripcion;
 
@@ -10,6 +12,13 @@ public class Categoria {
         this.id = id;
         this.descripcion = descripcion;
     }
+
+    public Categoria(Long id, String nombre, String descripcion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
+    
 
     public Categoria() {
     }
@@ -22,6 +31,14 @@ public class Categoria {
         this.id = id;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
     public String getDescripcion() {
         return descripcion;
     }
